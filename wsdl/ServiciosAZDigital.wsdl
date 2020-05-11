@@ -1,0 +1,679 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Sixto (Sixto) -->
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by Andres Schlesinger (Analitica) -->
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:azw="http://www.analitica.com.co/AZDigital/WS/"
+xmlns:err="http://www.analitica.com.co/Esquemas/Errores/"
+xmlns:az="http://www.analitica.com.co/AZDigital/xsds/"
+xmlns:ns="http://www.analitica.com.co/SGP/xsds/" name="ServiciosAZDigital" targetNamespace="http://www.analitica.com.co/AZDigital/WS/">
+	<wsdl:types>
+		<xs:schema targetNamespace="http://www.analitica.com.co/AZDigital/WS/" elementFormDefault="qualified">
+			<xs:import namespace="http://www.analitica.com.co/AZDigital/xsds/" schemaLocation="ServiciosAZDigital.xsd"/>
+			<xs:import namespace="http://www.analitica.com.co/Esquemas/Errores/" schemaLocation="Errores.xsd"/>
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:message name="InformarIn">
+		<wsdl:part name="parameter" element="az:Informar"/>
+	</wsdl:message>
+	<wsdl:message name="InformarOut">
+		<wsdl:part name="parameter" element="az:Informacion"/>
+	</wsdl:message>
+	<wsdl:message name="InformarFault">
+		<wsdl:part name="parameter" element="err:Errores"/>
+	</wsdl:message>
+	<wsdl:message name="CrearDirectorioIn">
+		<wsdl:part name="parameter" element="az:CrearDirectorio"/>
+	</wsdl:message>
+	<wsdl:message name="CrearDirectorioOut">
+		<wsdl:part name="parameter" element="az:RespuestaOperacion"/>
+	</wsdl:message>
+	<wsdl:message name="CrearDirectorioFault">
+		<wsdl:part name="parameter" element="err:Errores"/>
+	</wsdl:message>
+	<wsdl:message name="MoverIn">
+		<wsdl:part name="parameter" element="az:Mover"/>
+	</wsdl:message>
+	<wsdl:message name="MoverOut">
+		<wsdl:part name="parameter" element="az:RespuestaOperacion"/>
+	</wsdl:message>
+	<wsdl:message name="MoverFault">
+		<wsdl:part name="parameter" element="err:Errores"/>
+	</wsdl:message>
+	<wsdl:message name="RenombrarIn">
+		<wsdl:part name="parameter" element="az:Renombrar"/>
+	</wsdl:message>
+	<wsdl:message name="RenombrarOut">
+		<wsdl:part name="parameter" element="az:RespuestaOperacion"/>
+	</wsdl:message>
+	<wsdl:message name="RenombrarFault">
+		<wsdl:part name="parameter" element="err:Errores"/>
+	</wsdl:message>
+	<wsdl:message name="ConvertirAColeccionIn">
+		<wsdl:part name="parameter" element="az:ConvertirAColeccion"/>
+	</wsdl:message>
+	<wsdl:message name="ConvertirAColeccionOut">
+		<wsdl:part name="parameter" element="az:RespuestaOperacion"/>
+	</wsdl:message>
+	<wsdl:message name="ConvertirAColeccionFault">
+		<wsdl:part name="parameter" element="err:Errores"/>
+	</wsdl:message>
+	<wsdl:message name="RadicacionOut">
+		<wsdl:part name="parameter" element="az:Radicacion"/>
+	</wsdl:message>
+	<wsdl:message name="EscaneoOut">
+		<wsdl:part name="parameter" element="az:Escaneo"/>
+	</wsdl:message>
+	<wsdl:message name="NavegarIn">
+		<wsdl:part name="DiId" type="xs:integer"/>
+		<wsdl:part name="UsId" type="xs:string"/>
+		<wsdl:part name="Hash" type="xs:string"/>
+	</wsdl:message>
+	<wsdl:message name="NavegarOut">
+		<wsdl:part name="Body" type="xs:string"/>
+	</wsdl:message>
+	<wsdl:message name="RadicarIn">
+		<wsdl:part name="parameter" element="az:Radicar"/>
+	</wsdl:message>
+	<wsdl:message name="RadicarOut">
+		<wsdl:part name="parameter" element="az:RespuestaOperacion"/>
+	</wsdl:message>
+	<wsdl:message name="RadicarFault">
+		<wsdl:part name="parameter" element="err:Errores"/>
+	</wsdl:message>
+	<wsdl:message name="ReemplazarEnArchivoIn">
+		<wsdl:part name="parameter" element="az:ReemplazarEnArchivo"/>
+	</wsdl:message>
+	<wsdl:message name="ReemplazarEnArchivoOut">
+		<wsdl:part name="parameter" element="az:RespuestaOperacion"/>
+	</wsdl:message>
+	<wsdl:message name="ReemplazarEnArchivoFault">
+		<wsdl:part name="parameter" element="err:Errores"/>
+	</wsdl:message>
+	<wsdl:message name="CategorizarIn">
+		<wsdl:part name="parameter" element="az:Categorizar"/>
+	</wsdl:message>
+	<wsdl:message name="CategorizarOut">
+		<wsdl:part name="parameter" element="az:RespuestaOperacion"/>
+	</wsdl:message>
+	<wsdl:message name="CategorizarFault">
+		<wsdl:part name="parameter" element="err:Errores"/>
+	</wsdl:message>
+	<wsdl:message name="CompartirIn">
+		<wsdl:part name="parameter" element="az:Compartir"/>
+	</wsdl:message>
+	<wsdl:message name="CompartiOut">
+		<wsdl:part name="parameter" element="az:RespuestaOperacion"/>
+	</wsdl:message>
+	<wsdl:message name="CompartirFault">
+		<wsdl:part name="parameter" element="err:Errores"/>
+	</wsdl:message>
+	<wsdl:message name="CopiarIn">
+		<wsdl:part name="parameter" element="az:Copiar"/>
+	</wsdl:message>
+	<wsdl:message name="CopiarOut">
+		<wsdl:part name="parameter" element="az:RespuestaOperacion"/>
+	</wsdl:message>
+	<wsdl:message name="CopiarFault"/>
+	<wsdl:message name="ConsultarCategoriaIn">
+		<wsdl:part name="parameter" element="az:ConsultarCategoria"/>
+	</wsdl:message>
+	<wsdl:message name="RtaConsultarCategoriaOut">
+		<wsdl:part name="parameter" element="az:RtaConsultarCategoria"/>
+	</wsdl:message>
+	<wsdl:message name="ConsultarCategoriaFault"/>
+	<wsdl:message name="SolicitarArchivoIn">
+		<wsdl:part name="parameter" element="az:SolicitarArchivo"/>
+	</wsdl:message>
+	<wsdl:message name="SolicitarArchivoOut">
+		<wsdl:part name="parameter" element="az:EntregarArchivo"/>
+	</wsdl:message>
+	<wsdl:message name="SolicitarArchivoFault"/>
+	<wsdl:message name="CargarArchivoIn">
+		<wsdl:part name="parameter" element="az:CargarArchivo"/>
+	</wsdl:message>
+	<wsdl:message name="CargarArchivoOut">
+		<wsdl:part name="parameter" element="az:RespuestaOperacion"/>
+	</wsdl:message>
+	<wsdl:message name="CargarArchivoFault">
+		<wsdl:part name="parameter" element="err:Errores"/>
+	</wsdl:message>
+	<wsdl:message name="AdminTablaIn">
+		<wsdl:part name="parameter" element="ns:AdminTabla"/>
+	</wsdl:message>
+	<wsdl:message name="AdminTablaOut">
+		<wsdl:part name="parameter" element="ns:AdminTablaRpt"/>
+	</wsdl:message>
+	<wsdl:message name="AdminTablaFault">
+		<wsdl:part name="parameter" element="err:Errores"/>
+	</wsdl:message>
+	<wsdl:message name="LanzarFlujoTrabajoIn">
+		<wsdl:part name="parameter" element="az:LanzarFlujoTrabajo"/>
+	</wsdl:message>
+	<wsdl:message name="LanzarFlujoTrabajoOut">
+		<wsdl:part name="parameter" element="az:RespuestaOperacion"/>
+	</wsdl:message>
+	<wsdl:message name="LanzarFlujoTrabajoFault">
+		<wsdl:part name="parameter" element="err:Errores"/>
+	</wsdl:message>
+	<wsdl:message name="CambiarEstadoFlujoTrabajoIn">
+		<wsdl:part name="parameter" element="az:CambiarEstadoFlujoTrabajo"/>
+	</wsdl:message>
+	<wsdl:message name="CambioEstadoFlujoTrabajoOut">
+		<wsdl:part name="parameter" element="az:RespuestaOperacion"/>
+	</wsdl:message>
+	<wsdl:message name="CambioEstadoFlujoTrabajoFault">
+		<wsdl:part name="parameter" element="err:Errores"/>
+	</wsdl:message>
+	<wsdl:message name="BuscarArchivoIn">
+		<wsdl:part name="parameter" element="az:BuscarArchivo"/>
+	</wsdl:message>
+	<wsdl:message name="BuscarArchivoOut">
+		<wsdl:part name="parameter" element="az:RtaBuscarArchivo"/>
+	</wsdl:message>
+	<wsdl:message name="BuscarArchivoFault">
+		<wsdl:part name="parameter" element="err:Errores"/>
+	</wsdl:message>
+	<wsdl:message name="CargarCCDIn">
+		<wsdl:part name="parameter" element="az:CargarCCD"/>
+	</wsdl:message>
+	<wsdl:message name="CargarCCDout">
+		<wsdl:part name="parameter" element="az:RespuestaOperacion"/>
+	</wsdl:message>
+	<wsdl:message name="CargarCCDFault">
+		<wsdl:part name="parameter" element="err:Errores"/>
+	</wsdl:message>
+	<wsdl:message name="CargarTVDIn">
+		<wsdl:part name="parameter" element="az:CargarTVD"/>
+	</wsdl:message>
+	<wsdl:message name="CargarTVDOut">
+		<wsdl:part name="parameter" element="az:RespuestaOperacion"/>
+	</wsdl:message>
+	<wsdl:message name="CartarTVDFault">
+		<wsdl:part name="parameter" element="err:Errores"/>
+	</wsdl:message>
+	<wsdl:message name="CargarInventarioIn">
+		<wsdl:part name="parameter" element="az:CargarInventario"/>
+	</wsdl:message>
+	<wsdl:message name="CargarInventarioOut">
+		<wsdl:part name="parameter" element="az:RespuestaOperacion"/>
+	</wsdl:message>
+	<wsdl:message name="CargarInventarioFault">
+		<wsdl:part name="parameter" element="err:Errores"/>
+	</wsdl:message>
+	<wsdl:message name="CapturaFormularioPostIn">
+		<wsdl:part name="ArId" type="xs:long"/>
+	</wsdl:message>
+	<wsdl:message name="GeneracionRotulacionIn">
+		<wsdl:part name="parameter" element="az:GeneracionRotulacion"/>
+	</wsdl:message>
+	<wsdl:message name="GeneracionRotulacionOut">
+		<wsdl:part name="parameter" element="az:RespuestaOperacion"/>
+	</wsdl:message>
+	<wsdl:message name="GeneracionRotulacionFault">
+		<wsdl:part name="parameter" element="err:Errores"/>
+	</wsdl:message>
+	<wsdl:message name="RegistrarFirmaDigitalArchivoIn">
+		<wsdl:part name="parameter" element="az:RegistrarFirmaDigitalArchivo"/>
+	</wsdl:message>
+	<wsdl:message name="RegistrarFirmaDigitalArchivoOut">
+		<wsdl:part name="parameter" element="az:RespuestaOperacion"/>
+	</wsdl:message>
+	<wsdl:message name="RegistrarFirmaDigitalArchivoFault">
+		<wsdl:part name="parameter" element="err:Errores"/>
+	</wsdl:message>
+	<wsdl:message name="ActualizacionArchivoFisico_In">
+		<wsdl:part name="parameter" element="az:ActualizacionArchivoFisico"/>
+	</wsdl:message>
+	<wsdl:message name="ActualizacionArchivoFisicoOut">
+		<wsdl:part name="parameter" element="az:RespuestaOperacion"/>
+	</wsdl:message>
+	<wsdl:message name="ActualizacionArchivoFisicoFault">
+		<wsdl:part name="parameter" element="err:Errores"/>
+	</wsdl:message>
+	<wsdl:message name="BorrarIn">
+		<wsdl:part name="parameter" element="az:Borrar"/>
+	</wsdl:message>
+	<wsdl:message name="BorrarOut">
+		<wsdl:part name="parameter" element="az:RespuestaOperacion"/>
+	</wsdl:message>
+	<wsdl:message name="BorrarFault">
+		<wsdl:part name="parameter" element="err:Errores"/>
+	</wsdl:message>
+	<wsdl:portType name="ServiciosAZDigital_SOAP">
+		<wsdl:operation name="ActualizacionArchivoFisico">
+			<wsdl:input message="azw:ActualizacionArchivoFisico_In"/>
+			<wsdl:output message="azw:ActualizacionArchivoFisicoOut"/>
+			<wsdl:fault name="FaultName" message="azw:ActualizacionArchivoFisicoFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="AdminTabla">
+			<wsdl:input message="azw:AdminTablaIn"/>
+			<wsdl:output message="azw:AdminTablaOut"/>
+			<wsdl:fault name="Errores" message="azw:AdminTablaFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="Borrar">
+			<wsdl:input message="azw:BorrarIn"/>
+			<wsdl:output message="azw:BorrarOut"/>
+			<wsdl:fault name="FaultName" message="azw:BorrarFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="BuscarArchivo">
+			<wsdl:input message="azw:BuscarArchivoIn"/>
+			<wsdl:output message="azw:BuscarArchivoOut"/>
+			<wsdl:fault name="FaultName" message="azw:BuscarArchivoFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="CargarArchivo">
+			<wsdl:input message="azw:CargarArchivoIn"/>
+			<wsdl:output message="azw:CargarArchivoOut"/>
+			<wsdl:fault name="Errores" message="azw:CargarArchivoFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="CargarCCD">
+			<wsdl:input message="azw:CargarCCDIn"/>
+			<wsdl:output message="azw:CargarCCDout"/>
+			<wsdl:fault name="FaultName" message="azw:CargarCCDFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="CargarInventario">
+			<wsdl:input message="azw:CargarInventarioIn"/>
+			<wsdl:output message="azw:CargarInventarioOut"/>
+			<wsdl:fault name="FaultName" message="azw:CargarInventarioFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="CargarTVD">
+			<wsdl:input message="azw:CargarTVDIn"/>
+			<wsdl:output message="azw:CargarTVDOut"/>
+			<wsdl:fault name="FaultName" message="azw:CartarTVDFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="Categorizar">
+			<wsdl:input message="azw:CategorizarIn"/>
+			<wsdl:output message="azw:CategorizarOut"/>
+			<wsdl:fault name="Errores" message="azw:CategorizarFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="Compartir">
+			<wsdl:input message="azw:CompartirIn"/>
+			<wsdl:output message="azw:CompartiOut"/>
+			<wsdl:fault name="Errores" message="azw:CompartirFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="ConsultarCategoria">
+			<wsdl:input message="azw:ConsultarCategoriaIn"/>
+			<wsdl:output message="azw:RtaConsultarCategoriaOut"/>
+			<wsdl:fault name="Errores" message="azw:ConsultarCategoriaFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="ConvertirAColeccion">
+			<wsdl:input message="azw:ConvertirAColeccionIn"/>
+			<wsdl:output message="azw:ConvertirAColeccionOut"/>
+			<wsdl:fault name="Errores" message="azw:ConvertirAColeccionFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="Copiar">
+			<wsdl:input message="azw:CopiarIn"/>
+			<wsdl:output message="azw:CopiarOut"/>
+			<wsdl:fault name="Errores" message="azw:CopiarFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="CrearDirectorio">
+			<wsdl:input message="azw:CrearDirectorioIn"/>
+			<wsdl:output message="azw:CrearDirectorioOut"/>
+			<wsdl:fault name="Errores" message="azw:CrearDirectorioFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="GeneracionRotulacion">
+			<wsdl:input message="azw:GeneracionRotulacionIn"/>
+			<wsdl:output message="azw:GeneracionRotulacionOut"/>
+			<wsdl:fault name="FaultName" message="azw:GeneracionRotulacionFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="Informar">
+			<wsdl:input message="azw:InformarIn"/>
+			<wsdl:output message="azw:InformarOut"/>
+			<wsdl:fault name="Errores" message="azw:InformarFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="LanzarFlujoTrabajo">
+			<wsdl:input message="azw:LanzarFlujoTrabajoIn"/>
+			<wsdl:output message="azw:LanzarFlujoTrabajoOut"/>
+			<wsdl:fault name="FaultName" message="azw:LanzarFlujoTrabajoFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="CambiarEstadoFlujoTrabajo">
+			<wsdl:input message="azw:CambiarEstadoFlujoTrabajoIn"/>
+			<wsdl:output message="azw:CambioEstadoFlujoTrabajoOut"/>
+			<wsdl:fault name="FaultName" message="azw:CambioEstadoFlujoTrabajoFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="Mover">
+			<wsdl:input message="azw:MoverIn"/>
+			<wsdl:output message="azw:MoverOut"/>
+			<wsdl:fault name="Errores" message="azw:MoverFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="Radicar">
+			<wsdl:input message="azw:RadicarIn"/>
+			<wsdl:output message="azw:RadicarOut"/>
+			<wsdl:fault name="Errores" message="azw:RadicarFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="ReemplazarEnArchivo">
+			<wsdl:input message="azw:ReemplazarEnArchivoIn"/>
+			<wsdl:output message="azw:ReemplazarEnArchivoOut"/>
+			<wsdl:fault name="Errores" message="azw:ReemplazarEnArchivoFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="Renombrar">
+			<wsdl:input message="azw:RenombrarIn"/>
+			<wsdl:output message="azw:RenombrarOut"/>
+			<wsdl:fault name="Errores" message="azw:RenombrarFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="SolicitarArchivo">
+			<wsdl:input message="azw:SolicitarArchivoIn"/>
+			<wsdl:output message="azw:SolicitarArchivoOut"/>
+			<wsdl:fault name="Errores" message="azw:SolicitarArchivoFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="RegistrarFirmaDigitalArchivo">
+			<wsdl:input message="azw:RegistrarFirmaDigitalArchivoIn"/>
+			<wsdl:output message="azw:RegistrarFirmaDigitalArchivoOut"/>
+			<wsdl:fault name="FaultName" message="azw:RegistrarFirmaDigitalArchivoFault"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:portType name="ServiciosAZDigital_Get">
+		<wsdl:operation name="Navegar">
+			<wsdl:input message="azw:NavegarIn"/>
+			<wsdl:output message="azw:NavegarOut"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:portType name="AlertasAZDigital_SOAP">
+		<wsdl:operation name="Escaneo">
+			<wsdl:output message="azw:EscaneoOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="Radicacion">
+			<wsdl:output message="azw:RadicacionOut"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:portType name="ServiciosAZDigital_Post">
+		<wsdl:operation name="CapturaFormularioPost">
+			<wsdl:input message="azw:CapturaFormularioPostIn"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="ServiciosAZDigital_SOAP" type="azw:ServiciosAZDigital_SOAP">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="ActualizacionArchivoFisico">
+			<soap:operation soapAction="urn:#ActualizacionArchivoFisico"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="FaultName"/>
+		</wsdl:operation>
+		<wsdl:operation name="AdminTabla">
+			<soap:operation soapAction="urn:#NewOperation"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Errores"/>
+		</wsdl:operation>
+		<wsdl:operation name="Borrar">
+			<soap:operation soapAction="urn:#Borrar"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="FaultName"/>
+		</wsdl:operation>
+		<wsdl:operation name="BuscarArchivo">
+			<soap:operation soapAction="urn:#BuscarArchivo"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="FaultName"/>
+		</wsdl:operation>
+		<wsdl:operation name="CargarArchivo">
+			<soap:operation soapAction="urn:#CargarArchivo"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Errores"/>
+		</wsdl:operation>
+		<wsdl:operation name="CargarCCD">
+			<soap:operation soapAction="urn:#CargarCCD"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="FaultName"/>
+		</wsdl:operation>
+		<wsdl:operation name="CargarInventario">
+			<soap:operation soapAction="urn:#CargarInventario"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="FaultName"/>
+		</wsdl:operation>
+		<wsdl:operation name="CargarTVD">
+			<soap:operation soapAction="urn:#CargarTVD"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="FaultName"/>
+		</wsdl:operation>
+		<wsdl:operation name="Categorizar">
+			<soap:operation soapAction="urn:#Categorizar"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Errores"/>
+		</wsdl:operation>
+		<wsdl:operation name="Compartir">
+			<soap:operation soapAction="urn:#Compartir"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Errores"/>
+		</wsdl:operation>
+		<wsdl:operation name="ConsultarCategoria">
+			<soap:operation soapAction="urn:#ConsultarCategoria"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Errores"/>
+		</wsdl:operation>
+		<wsdl:operation name="ConvertirAColeccion">
+			<soap:operation soapAction="urn:#ConvertirAColeccion"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Errores"/>
+		</wsdl:operation>
+		<wsdl:operation name="Copiar">
+			<soap:operation soapAction="urn:#Copiar"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Errores"/>
+		</wsdl:operation>
+		<wsdl:operation name="CrearDirectorio">
+			<soap:operation soapAction="urn:#CrearDirectorio"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Errores"/>
+		</wsdl:operation>
+		<wsdl:operation name="GeneracionRotulacion">
+			<soap:operation soapAction="urn:#NewOperation"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="FaultName"/>
+		</wsdl:operation>
+		<wsdl:operation name="Informar">
+			<soap:operation soapAction="urn:#Informar"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Errores"/>
+		</wsdl:operation>
+		<wsdl:operation name="LanzarFlujoTrabajo">
+			<soap:operation soapAction="urn:#LanzarFlujoTrabajo"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="FaultName"/>
+		</wsdl:operation>
+		<wsdl:operation name="CambiarEstadoFlujoTrabajo">
+			<soap:operation soapAction="urn:#CambioEstadoFlujoTrabajo"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="FaultName"/>
+		</wsdl:operation>
+		<wsdl:operation name="Mover">
+			<soap:operation soapAction="urn:#Mover"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Errores"/>
+		</wsdl:operation>
+		<wsdl:operation name="Radicar">
+			<soap:operation soapAction="urn:#Radicar"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Errores"/>
+		</wsdl:operation>
+		<wsdl:operation name="ReemplazarEnArchivo">
+			<soap:operation soapAction="urn:#ReemplazarEnArchivo"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Errores"/>
+		</wsdl:operation>
+		<wsdl:operation name="Renombrar">
+			<soap:operation soapAction="urn:#Renombrar"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Errores"/>
+		</wsdl:operation>
+		<wsdl:operation name="SolicitarArchivo">
+			<soap:operation soapAction="urn:#SolicitarArchivo"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Errores"/>
+		</wsdl:operation>
+		<wsdl:operation name="RegistrarFirmaDigitalArchivo">
+			<soap:operation soapAction="urn:#RegistrarFirmaDigitalArchivo"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="FaultName"/>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:binding name="ServiciosAZDigital_Get" type="azw:ServiciosAZDigital_Get">
+		<http:binding verb="GET"/>
+		<wsdl:operation name="Navegar">
+			<http:operation location="/Navegar"/>
+			<wsdl:input>
+				<http:urlEncoded/>
+			</wsdl:input>
+			<wsdl:output>
+				<mime:mimeXml part="Body"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:binding name="AlertasAZDigital_SOAP" type="azw:AlertasAZDigital_SOAP">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="Escaneo">
+			<soap:operation soapAction="urn:#Escaneo"/>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="Radicacion">
+			<soap:operation soapAction="urn:#Radicacion"/>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:binding name="ServiciosAZDigital_Post" type="azw:ServiciosAZDigital_Post">
+		<http:binding verb="GET"/>
+		<wsdl:operation name="CapturaFormularioPost">
+			<http:operation location="/CapturaFormularioPost"/>
+			<wsdl:input>
+				<http:urlEncoded/>
+			</wsdl:input>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="ServiciosAZDigital">
+		<wsdl:port name="ServiciosAZDigital_SOAP" binding="azw:ServiciosAZDigital_SOAP">
+			<soap:address location="../WebServices/SOAP/"/>
+		</wsdl:port>
+		<wsdl:port name="ServiciosAZDigital_Get" binding="azw:ServiciosAZDigital_Get">
+			<http:address location="../ControlAdmin/index.php"/>
+		</wsdl:port>
+		<wsdl:port name="ServiciosAZDigital_Post" binding="azw:ServiciosAZDigital_Post">
+			<http:address location="../CapturaFormularioPost/CapturaFormularioPost.php"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
