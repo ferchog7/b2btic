@@ -4,6 +4,8 @@ class B2b{
     private $wsdl_url;
     private $wsdl_options;
     public $conn;
+    public $errors;
+    public $result;
 
     function __construct(){
         require_once '../config/webservice.php';
@@ -11,6 +13,8 @@ class B2b{
         $this->wsdl_url = $wsdl;
         $this->wsdl_options = $options;
         $this->conn = $connect->connect_db();
+        $this->errors = '';
+        $this->result = '';
     }
 
     public function updateFiles($type, $value){
@@ -28,6 +32,7 @@ class B2b{
         foreach($result->Archivo as $value_file){
             $this->saveFiles($value_file, $this->getType($value_file->Nombre));
         }
+        return "Proceso finalizado: <hr>".$this->result."<hr>".$this->errors;
     }
 
     private function getType($fileName){
@@ -48,13 +53,15 @@ class B2b{
             $last_id = $this->conn->insert_id;
             $sql_type = "INSERT INTO file_type(file_id, type) VALUES($last_id, '".$fileType."')";
             if($this->conn->query($sql_type) === FALSE){
-                echo "<div style='color:red'>Error guardando la extensión del archivo: " . $fileName . "<br>" . $this->conn->error. "</div>";
+                $this->errors .= "<div style='color:red'>Error guardando la extensión del archivo: " . $fileName . "<br>" . $this->conn->error. "</div>";
             }
+            $this->result .= "<div style='color:green'>Guardado del archivo: " . $fileName . "<br></div>";
         }else{
-            echo "<div style='color:red'>Error guardando el archivo: " . $fileName . "<br>" . $this->conn->error. "</div>"; 
+            $this->errors .= "<div style='color:red'>Error guardando el archivo: " . $fileName . "<br>" . $this->conn->error. "</div>"; 
         }
     }
 }
 
 $b2b = new B2b();
 $archivos = $b2b->updateFiles('FechaInicial', '2019-07-01 00:00:00');
+echo $archivos;

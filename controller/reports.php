@@ -65,6 +65,9 @@ class Report{
                 $table .= "</tr>";
             }
         }
+        else {
+            $table .= "<tr><td>No hay datos para mostrar</td></tr>";
+        }
         $table .= "</table>";
         return $table;
     }
